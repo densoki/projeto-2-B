@@ -1,0 +1,13 @@
+body{ /* selecionamos o corpo do site inteiro */
+background-color:seashell; /* alterar a cor do fundo do site */
+color: maroon; /* alterar a cor da fonte */
+margin: 50px; /* alterar a margem em volta da página - semelhante a margem do word */
+font-family: "Poppins", sans-serif; /* alterar a fonte */
+font-weight: 400; /* alterar o peso da fonte - 400 = normal */
+display: flex; /* alterar a disposição dos elementos da tela - 'quero que eles sejam flexiveis', ou seja ocupar o espaço disponível de forma mais homogênea */
+flex-direction: column; /* alterar a orientação dos elementos da tela - vão aparecer em coluna */
+}
+
+h1, h2{ /* seleciona duas tags ao mesmo tempo */
+text-align: center; /* alterar o alinhamento do texto - center= centralizado, end= lado direito, start= lado esquerdo */
+}
