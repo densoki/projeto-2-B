@@ -1,1043 +1,2013 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description"
-        content="Site educativo sobre Óptica: formação de imagens, física das cores, espelhos, reflexão e óptica do olho humano.">
-
-    <title>Óptica | Luz, Imagens e Visão</title>
-
-    <link rel="stylesheet" href="style.css">
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background: #f7f9fc;
+    color: #101828;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================================================
+   VARIÁVEIS
+========================================================= */
+
+:root {
+    --blue: #2563ff;
+    --blue-light: #5c8dff;
+    --cyan: #26d9ff;
+
+    --purple: #7c4dff;
+    --orange: #ff8a3d;
+    --green: #20d9a0;
+
+    --dark: #07101f;
+    --dark-2: #0b1729;
+    --dark-3: #101f35;
+
+    --text: #101828;
+    --muted: #667085;
+
+    --white: #ffffff;
+    --border: #e4e9f0;
+
+    --radius-lg: 30px;
+    --radius-md: 20px;
+    --radius-sm: 12px;
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
-        rel="stylesheet">
-</head>
+    --shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+}
 
-<body>
 
-    <!-- =========================
-         HEADER / NAVEGAÇÃO
-    ========================== -->
+/* =========================================================
+   CONTAINER
+========================================================= */
 
-    <header class="header">
-        <div class="container nav-container">
+.container {
+    width: min(1180px, calc(100% - 48px));
+    margin-inline: auto;
+}
 
-            <a href="#inicio" class="logo">
-                <span class="logo-symbol">◉</span>
-                <span>ÓPTICA<span class="logo-dot">.</span></span>
-            </a>
 
-            <nav class="nav">
-                <a href="#formacao">Imagens</a>
-                <a href="#cores">Cores</a>
-                <a href="#espelhos">Espelhos</a>
-                <a href="#olho">Olho Humano</a>
-            </nav>
+/* =========================================================
+   HEADER
+========================================================= */
 
-            <a href="#explorar" class="nav-button">
-                Explorar
-                <span>→</span>
-            </a>
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    color: white;
+}
 
-        </div>
-    </header>
+.nav-container {
+    min-height: 88px;
 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-    <main>
+    gap: 40px;
+}
 
-        <!-- =========================
-             HERO
-        ========================== -->
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 
-        <section class="hero" id="inicio">
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
 
-            <div class="hero-glow glow-one"></div>
-            <div class="hero-glow glow-two"></div>
+.logo-symbol {
+    width: 36px;
+    height: 36px;
 
-            <div class="container hero-grid">
+    display: grid;
+    place-items: center;
 
-                <div class="hero-content">
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
 
-                    <div class="eyebrow">
-                        <span class="eyebrow-line"></span>
-                        FÍSICA • ÓPTICA
-                    </div>
+    color: #62dfff;
 
-                    <h1>
-                        O mundo através
-                        <span>da luz.</span>
-                    </h1>
+    box-shadow:
+        0 0 20px rgba(38, 217, 255, 0.25),
+        inset 0 0 15px rgba(38, 217, 255, 0.1);
+}
 
-                    <p class="hero-description">
-                        Descubra como a luz se propaga, forma imagens,
-                        produz cores, interage com espelhos e permite
-                        que o olho humano enxergue o mundo.
-                    </p>
+.logo-dot {
+    color: var(--cyan);
+}
 
-                    <div class="hero-actions">
-                        <a href="#explorar" class="button button-primary">
-                            Começar a explorar
-                            <span>↓</span>
-                        </a>
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
 
-                        <a href="#formacao" class="button button-secondary">
-                            Ver conteúdo
-                        </a>
-                    </div>
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.65);
+}
 
-                    <div class="hero-stats">
-                        <div>
-                            <strong>04</strong>
-                            <span>Temas principais</span>
-                        </div>
+.nav a {
+    transition: color 0.25s ease;
+}
 
-                        <div>
-                            <strong>∞</strong>
-                            <span>Fenômenos da luz</span>
-                        </div>
+.nav a:hover {
+    color: white;
+}
 
-                        <div>
-                            <strong>c</strong>
-                            <span>Velocidade da luz</span>
-                        </div>
-                    </div>
+.nav-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 
-                </div>
+    padding: 11px 18px;
 
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 100px;
 
-                <!-- ILUSTRAÇÃO DA LUZ -->
+    font-size: 13px;
+    font-weight: 600;
 
-                <div class="hero-visual">
+    transition: all 0.25s ease;
+}
 
-                    <div class="orbit orbit-one"></div>
-                    <div class="orbit orbit-two"></div>
+.nav-button:hover {
+    background: white;
+    color: var(--dark);
+}
 
-                    <div class="light-core">
-                        <div class="core-inner"></div>
-                    </div>
 
-                    <div class="ray ray-one"></div>
-                    <div class="ray ray-two"></div>
-                    <div class="ray ray-three"></div>
-                    <div class="ray ray-four"></div>
-                    <div class="ray ray-five"></div>
+/* =========================================================
+   HERO
+========================================================= */
 
-                    <div class="visual-label label-top">
-                        <span class="label-dot"></span>
-                        LUZ
-                    </div>
+.hero {
+    position: relative;
+    min-height: 800px;
 
-                    <div class="visual-label label-bottom">
-                        <span>λ</span>
-                        Comprimento de onda
-                    </div>
+    display: flex;
+    align-items: center;
 
-                </div>
+    background:
+        radial-gradient(circle at 75% 45%, rgba(37, 99, 255, 0.18), transparent 30%),
+        radial-gradient(circle at 90% 15%, rgba(38, 217, 255, 0.1), transparent 25%),
+        linear-gradient(135deg, #040a14 0%, #07101f 50%, #09172a 100%);
 
-            </div>
-        </section>
+    color: white;
 
+    overflow: hidden;
+}
 
-        <!-- =========================
-             INTRODUÇÃO
-        ========================== -->
+.hero::before {
+    content: "";
 
-        <section class="intro-section" id="explorar">
+    position: absolute;
+    inset: 0;
 
-            <div class="container">
+    background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
 
-                <div class="section-heading centered">
+    background-size: 60px 60px;
 
-                    <div class="eyebrow">
-                        <span class="eyebrow-line"></span>
-                        FUNDAMENTOS
-                        <span class="eyebrow-line"></span>
-                    </div>
+    mask-image: linear-gradient(to bottom, black, transparent);
+}
 
-                    <h2>
-                        A luz é a chave para
-                        <span>compreender o universo.</span>
-                    </h2>
+.hero-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+}
 
-                    <p>
-                        A Óptica é o ramo da Física responsável pelo estudo
-                        da luz e de seus fenômenos. Ela explica desde o
-                        funcionamento de uma câmera até a formação das
-                        imagens em nossos olhos.
-                    </p>
+.glow-one {
+    width: 400px;
+    height: 400px;
 
-                </div>
+    right: 5%;
+    top: 25%;
 
+    background: rgba(37, 99, 255, 0.18);
+}
 
-                <div class="topic-grid">
+.glow-two {
+    width: 300px;
+    height: 300px;
 
-                    <a href="#formacao" class="topic-card topic-blue">
-                        <div class="card-number">01</div>
+    left: 25%;
+    bottom: -100px;
 
-                        <div class="topic-icon">◈</div>
+    background: rgba(38, 217, 255, 0.08);
+}
 
-                        <h3>Uso e Formação<br>de Imagens</h3>
+.hero-grid {
+    position: relative;
+    z-index: 2;
 
-                        <p>
-                            Entenda como lentes e sistemas ópticos
-                            produzem imagens reais e virtuais.
-                        </p>
+    display: grid;
+    grid-template-columns: 1fr 0.9fr;
 
-                        <span class="card-link">
-                            Explorar tema →
-                        </span>
-                    </a>
+    align-items: center;
 
+    gap: 80px;
 
-                    <a href="#cores" class="topic-card topic-purple">
-                        <div class="card-number">02</div>
+    padding-top: 100px;
+}
 
-                        <div class="topic-icon">◉</div>
+.hero-content {
+    max-width: 650px;
+}
 
-                        <h3>Física<br>das Cores</h3>
+.eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 
-                        <p>
-                            Descubra como diferentes comprimentos
-                            de onda produzem as cores que percebemos.
-                        </p>
+    margin-bottom: 22px;
 
-                        <span class="card-link">
-                            Explorar tema →
-                        </span>
-                    </a>
+    color: #61dcff;
 
+    font-size: 11px;
+    font-weight: 700;
 
-                    <a href="#espelhos" class="topic-card topic-orange">
-                        <div class="card-number">03</div>
+    letter-spacing: 2.5px;
+}
 
-                        <div class="topic-icon">◐</div>
+.eyebrow-line {
+    width: 28px;
+    height: 1px;
 
-                        <h3>Espelhos<br>e Reflexão</h3>
+    background: currentColor;
+}
 
-                        <p>
-                            Conheça a reflexão da luz e os diferentes
-                            tipos de espelhos utilizados no cotidiano.
-                        </p>
+.hero h1 {
+    max-width: 680px;
 
-                        <span class="card-link">
-                            Explorar tema →
-                        </span>
-                    </a>
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(54px, 7vw, 88px);
+    line-height: 0.98;
+    letter-spacing: -4px;
+}
 
+.hero h1 span {
+    display: block;
 
-                    <a href="#olho" class="topic-card topic-green">
-                        <div class="card-number">04</div>
+    background: linear-gradient(
+        90deg,
+        #ffffff 0%,
+        #62dfff 50%,
+        #5383ff 100%
+    );
 
-                        <div class="topic-icon">◎</div>
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
 
-                        <h3>A Óptica do<br>Olho Humano</h3>
+.hero-description {
+    max-width: 580px;
 
-                        <p>
-                            Veja como córnea, cristalino e retina
-                            trabalham juntos para formar nossa visão.
-                        </p>
+    margin-top: 30px;
 
-                        <span class="card-link">
-                            Explorar tema →
-                        </span>
-                    </a>
+    color: rgba(255, 255, 255, 0.6);
 
-                </div>
+    font-size: 17px;
+    line-height: 1.8;
+}
 
-            </div>
-        </section>
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
 
+    margin-top: 36px;
+}
 
-        <!-- =========================
-             FORMAÇÃO DE IMAGENS
-        ========================== -->
+.button {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
 
-        <section class="content-section dark-section" id="formacao">
+    padding: 15px 21px;
 
-            <div class="container">
+    border-radius: 100px;
 
-                <div class="section-heading">
+    font-size: 14px;
+    font-weight: 600;
 
-                    <div class="eyebrow">
-                        01 — FORMAÇÃO DE IMAGENS
-                    </div>
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border 0.25s ease;
+}
 
-                    <h2>
-                        Quando a luz encontra
-                        <span>um sistema óptico.</span>
-                    </h2>
+.button:hover {
+    transform: translateY(-3px);
+}
 
-                    <p>
-                        A formação de imagens acontece quando os raios
-                        luminosos são desviados por lentes, espelhos ou
-                        outros elementos ópticos.
-                    </p>
+.button-primary {
+    background: white;
+    color: var(--dark);
+}
 
-                </div>
+.button-secondary {
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: white;
+}
 
+.button-secondary:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+}
 
-                <div class="image-formation-grid">
+.hero-stats {
+    display: flex;
+    gap: 45px;
 
-                    <div class="diagram-panel">
+    margin-top: 65px;
+}
 
-                        <div class="panel-header">
-                            <div>
-                                <span class="panel-tag">DIAGRAMA</span>
-                                <h3>Lente convergente</h3>
-                            </div>
+.hero-stats div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
 
-                            <span class="panel-symbol">f</span>
-                        </div>
+.hero-stats strong {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 24px;
+}
 
+.hero-stats span {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 11px;
+}
 
-                        <div class="lens-diagram">
 
-                            <div class="optical-axis"></div>
+/* =========================================================
+   HERO VISUAL
+========================================================= */
 
-                            <div class="object-arrow">
-                                <span>Objeto</span>
-                                <div class="arrow-body"></div>
-                                <div class="arrow-head"></div>
-                            </div>
+.hero-visual {
+    position: relative;
 
-                            <div class="convex-lens">
-                                <div></div>
-                            </div>
+    width: min(470px, 100%);
+    aspect-ratio: 1;
 
-                            <div class="focus-point focus-left">
-                                F
-                            </div>
+    margin-inline: auto;
+}
 
-                            <div class="focus-point focus-right">
-                                F'
-                            </div>
+.light-core {
+    position: absolute;
 
-                            <div class="light-ray ray-a"></div>
-                            <div class="light-ray ray-b"></div>
-                            <div class="light-ray ray-c"></div>
+    width: 110px;
+    height: 110px;
 
-                            <div class="image-arrow">
-                                <span>Imagem</span>
-                                <div class="image-body"></div>
-                                <div class="image-head"></div>
-                            </div>
+    top: 50%;
+    left: 50%;
 
-                        </div>
+    transform: translate(-50%, -50%);
 
+    border-radius: 50%;
 
-                        <div class="diagram-legend">
-                            <div>
-                                <span class="legend-color blue"></span>
-                                Raios incidentes
-                            </div>
+    background:
+        radial-gradient(circle,
+            white 0%,
+            #b8f4ff 18%,
+            #4bdcff 38%,
+            #2575ff 62%,
+            transparent 72%);
 
-                            <div>
-                                <span class="legend-color orange"></span>
-                                Imagem formada
-                            </div>
-                        </div>
+    box-shadow:
+        0 0 35px #3edcff,
+        0 0 90px rgba(44, 176, 255, 0.65),
+        0 0 160px rgba(38, 107, 255, 0.3);
 
-                    </div>
+    animation: pulse 4s ease-in-out infinite;
+}
 
+.core-inner {
+    position: absolute;
+    inset: 36px;
 
-                    <div class="info-column">
+    border-radius: 50%;
 
-                        <article class="info-card">
-                            <div class="info-icon">+</div>
+    background: white;
 
-                            <div>
-                                <h3>Imagem real</h3>
+    box-shadow: 0 0 25px white;
+}
 
-                                <p>
-                                    É formada pelo encontro efetivo dos
-                                    raios luminosos. Pode ser projetada
-                                    sobre uma tela.
-                                </p>
-                            </div>
-                        </article>
+.orbit {
+    position: absolute;
 
+    top: 50%;
+    left: 50%;
 
-                        <article class="info-card">
-                            <div class="info-icon">◎</div>
+    border: 1px solid rgba(79, 220, 255, 0.2);
 
-                            <div>
-                                <h3>Imagem virtual</h3>
+    border-radius: 50%;
 
-                                <p>
-                                    Surge do prolongamento aparente dos
-                                    raios de luz. Não pode ser projetada
-                                    diretamente em uma tela.
-                                </p>
-                            </div>
-                        </article>
+    transform: translate(-50%, -50%) rotate(-25deg);
+}
 
+.orbit-one {
+    width: 330px;
+    height: 190px;
 
-                        <article class="formula-card">
+    animation: orbitRotate 12s linear infinite;
+}
 
-                            <span>Equação de Gauss</span>
+.orbit-two {
+    width: 400px;
+    height: 260px;
 
-                            <div class="formula">
-                                <i>1</i>/<i>f</i>
-                                =
-                                <i>1</i>/<i>p</i>
-                                +
-                                <i>1</i>/<i>p'</i>
-                            </div>
+    transform: translate(-50%, -50%) rotate(65deg);
 
-                            <small>
-                                Relação entre distância focal,
-                                objeto e imagem.
-                            </small>
+    border-color: rgba(90, 119, 255, 0.15);
 
-                        </article>
+    animation: orbitRotate 18s linear infinite reverse;
+}
 
-                    </div>
+.ray {
+    position: absolute;
 
-                </div>
+    width: 220px;
+    height: 1px;
 
-            </div>
-        </section>
+    top: 50%;
+    left: 50%;
 
+    transform-origin: left center;
 
-        <!-- =========================
-             CORES
-        ========================== -->
+    background: linear-gradient(
+        90deg,
+        rgba(95, 225, 255, 0.9),
+        rgba(37, 99, 255, 0)
+    );
 
-        <section class="content-section colors-section" id="cores">
+    box-shadow: 0 0 10px rgba(61, 218, 255, 0.4);
+}
 
-            <div class="container">
+.ray-one {
+    transform: rotate(-12deg);
+}
 
-                <div class="split-heading">
+.ray-two {
+    transform: rotate(22deg);
+}
 
-                    <div>
-                        <div class="eyebrow dark-eyebrow">
-                            02 — FÍSICA DAS CORES
-                        </div>
+.ray-three {
+    transform: rotate(57deg);
+}
 
-                        <h2>
-                            A cor que vemos
-                            <span>é luz.</span>
-                        </h2>
-                    </div>
+.ray-four {
+    transform: rotate(105deg);
+}
 
-                    <p>
-                        A luz visível é uma pequena parte do espectro
-                        eletromagnético. Cada cor corresponde a uma faixa
-                        diferente de comprimentos de onda.
-                    </p>
+.ray-five {
+    transform: rotate(145deg);
+}
 
-                </div>
+.visual-label {
+    position: absolute;
 
+    display: flex;
+    align-items: center;
+    gap: 8px;
 
-                <!-- ESPECTRO -->
+    padding: 9px 12px;
 
-                <div class="spectrum-container">
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
 
-                    <div class="spectrum">
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(10px);
 
-                        <div class="spectrum-color violet"></div>
-                        <div class="spectrum-color blue"></div>
-                        <div class="spectrum-color cyan"></div>
-                        <div class="spectrum-color green"></div>
-                        <div class="spectrum-color yellow"></div>
-                        <div class="spectrum-color orange"></div>
-                        <div class="spectrum-color red"></div>
+    color: rgba(255, 255, 255, 0.65);
 
-                    </div>
+    font-size: 10px;
+    letter-spacing: 1.5px;
+}
 
-                    <div class="spectrum-labels">
+.label-top {
+    top: 18%;
+    right: 0;
+}
 
-                        <div>
-                            <strong>380</strong>
-                            nm
-                        </div>
+.label-bottom {
+    bottom: 14%;
+    left: 2%;
 
-                        <div>
-                            <strong>450</strong>
-                            nm
-                        </div>
+    letter-spacing: 0;
 
-                        <div>
-                            <strong>495</strong>
-                            nm
-                        </div>
+    text-transform: none;
+}
 
-                        <div>
-                            <strong>570</strong>
-                            nm
-                        </div>
+.label-bottom span {
+    color: var(--cyan);
 
-                        <div>
-                            <strong>590</strong>
-                            nm
-                        </div>
+    font-family: serif;
+    font-size: 20px;
+}
 
-                        <div>
-                            <strong>620</strong>
-                            nm
-                        </div>
+.label-dot {
+    width: 6px;
+    height: 6px;
 
-                        <div>
-                            <strong>750</strong>
-                            nm
-                        </div>
+    border-radius: 50%;
 
-                    </div>
+    background: var(--cyan);
 
-                </div>
+    box-shadow: 0 0 10px var(--cyan);
+}
 
 
-                <div class="color-grid">
+/* =========================================================
+   INTRO
+========================================================= */
 
-                    <article class="color-card">
+.intro-section {
+    padding: 130px 0;
+    background: #f7f9fc;
+}
 
-                        <div class="color-circle rgb-circle"></div>
+.section-heading {
+    max-width: 700px;
+}
 
-                        <h3>Síntese aditiva</h3>
+.section-heading.centered {
+    margin-inline: auto;
+    text-align: center;
+}
 
-                        <p>
-                            Na mistura de luzes, as cores primárias
-                            são vermelho, verde e azul (RGB).
-                        </p>
+.section-heading.centered .eyebrow {
+    justify-content: center;
+}
 
-                        <div class="rgb-bars">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
+.section-heading h2,
+.split-heading h2,
+.eye-header h2,
+.summary-content h2 {
+    font-family: "Space Grotesk", sans-serif;
 
-                    </article>
+    font-size: clamp(40px, 5vw, 60px);
+    line-height: 1.05;
 
+    letter-spacing: -2.5px;
+}
 
-                    <article class="color-card">
+.section-heading h2 span,
+.split-heading h2 span,
+.eye-header h2 span,
+.summary-content h2 span {
+    color: var(--blue);
+}
 
-                        <div class="color-circle pigment-circle"></div>
+.section-heading p {
+    margin-top: 22px;
 
-                        <h3>Síntese subtrativa</h3>
+    color: var(--muted);
+    font-size: 16px;
+}
 
-                        <p>
-                            É baseada na absorção de luz. É utilizada
-                            em tintas, impressoras e pigmentos.
-                        </p>
 
-                        <div class="cmy-bars">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
+/* =========================================================
+   TOPIC CARDS
+========================================================= */
 
-                    </article>
+.topic-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
 
+    gap: 16px;
 
-                    <article class="color-card">
+    margin-top: 70px;
+}
 
-                        <div class="color-circle white-circle"></div>
+.topic-card {
+    position: relative;
 
-                        <h3>Luz branca</h3>
+    min-height: 330px;
 
-                        <p>
-                            A luz branca é composta por diferentes
-                            frequências do espectro visível.
-                        </p>
+    padding: 28px;
 
-                        <div class="white-spectrum"></div>
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
 
-                    </article>
+    background: white;
 
-                </div>
+    overflow: hidden;
 
-            </div>
-        </section>
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border 0.3s ease;
+}
 
+.topic-card::after {
+    content: "";
 
-        <!-- =========================
-             ESPELHOS
-        ========================== -->
+    position: absolute;
 
-        <section class="content-section mirror-section" id="espelhos">
+    width: 160px;
+    height: 160px;
 
-            <div class="container">
+    right: -70px;
+    bottom: -70px;
 
-                <div class="section-heading">
+    border-radius: 50%;
 
-                    <div class="eyebrow">
-                        03 — ESPELHOS E REFLEXÃO
-                    </div>
+    background: var(--card-color);
 
-                    <h2>
-                        A luz pode mudar
-                        <span>de direção.</span>
-                    </h2>
+    opacity: 0.07;
 
-                    <p>
-                        Quando a luz encontra uma superfície e retorna
-                        ao meio de origem, ocorre o fenômeno da reflexão.
-                    </p>
+    transition: transform 0.4s ease;
+}
 
-                </div>
+.topic-card:hover {
+    transform: translateY(-8px);
+    border-color: transparent;
 
+    box-shadow: var(--shadow);
+}
 
-                <div class="reflection-layout">
+.topic-card:hover::after {
+    transform: scale(2);
+}
 
-                    <div class="reflection-diagram">
+.topic-blue {
+    --card-color: var(--blue);
+}
 
-                        <div class="mirror-surface"></div>
+.topic-purple {
+    --card-color: var(--purple);
+}
 
-                        <div class="normal-line"></div>
+.topic-orange {
+    --card-color: var(--orange);
+}
 
-                        <div class="incident-ray"></div>
+.topic-green {
+    --card-color: var(--green);
+}
 
-                        <div class="reflected-ray"></div>
+.card-number {
+    color: #98a2b3;
 
-                        <div class="angle angle-i">
-                            i
-                        </div>
+    font-size: 11px;
+    font-weight: 700;
 
-                        <div class="angle angle-r">
-                            r
-                        </div>
+    letter-spacing: 1px;
+}
 
-                        <div class="normal-label">
-                            Normal
-                        </div>
+.topic-icon {
+    width: 52px;
+    height: 52px;
 
-                        <div class="mirror-label">
-                            ESPELHO
-                        </div>
+    display: grid;
+    place-items: center;
 
-                        <div class="reflection-equation">
-                            i = r
-                        </div>
+    margin: 35px 0 30px;
 
-                    </div>
+    border-radius: 15px;
 
+    background: color-mix(in srgb, var(--card-color) 10%, white);
+    color: var(--card-color);
 
-                    <div class="mirror-types">
+    font-size: 25px;
+}
 
-                        <article class="mirror-card">
+.topic-card h3 {
+    font-family: "Space Grotesk", sans-serif;
 
-                            <div class="mirror-illustration plane">
-                                <div></div>
-                            </div>
+    font-size: 22px;
+    line-height: 1.1;
 
-                            <div>
-                                <span>TIPO 01</span>
-                                <h3>Espelho plano</h3>
+    letter-spacing: -0.5px;
+}
 
-                                <p>
-                                    Forma imagens virtuais, direitas
-                                    e de mesmo tamanho que o objeto.
-                                </p>
-                            </div>
+.topic-card p {
+    margin-top: 16px;
 
-                        </article>
+    color: var(--muted);
 
+    font-size: 13px;
+    line-height: 1.6;
+}
 
-                        <article class="mirror-card">
+.card-link {
+    position: absolute;
+    bottom: 26px;
 
-                            <div class="mirror-illustration concave">
-                                <div></div>
-                            </div>
+    color: var(--card-color);
 
-                            <div>
-                                <span>TIPO 02</span>
-                                <h3>Espelho côncavo</h3>
+    font-size: 12px;
+    font-weight: 700;
+}
 
-                                <p>
-                                    Pode formar imagens reais ou
-                                    virtuais dependendo da posição
-                                    do objeto.
-                                </p>
-                            </div>
 
-                        </article>
+/* =========================================================
+   DARK CONTENT
+========================================================= */
 
+.dark-section {
+    padding: 130px 0;
 
-                        <article class="mirror-card">
+    background:
+        radial-gradient(circle at 90% 20%, rgba(37, 99, 255, 0.12), transparent 25%),
+        var(--dark);
 
-                            <div class="mirror-illustration convex">
-                                <div></div>
-                            </div>
+    color: white;
+}
 
-                            <div>
-                                <span>TIPO 03</span>
-                                <h3>Espelho convexo</h3>
+.dark-section .section-heading p {
+    color: rgba(255, 255, 255, 0.55);
+}
 
-                                <p>
-                                    Produz imagens virtuais, direitas
-                                    e menores que o objeto.
-                                </p>
-                            </div>
+.image-formation-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
 
-                        </article>
+    gap: 25px;
 
-                    </div>
+    margin-top: 70px;
+}
 
-                </div>
+.diagram-panel {
+    min-height: 520px;
 
+    padding: 28px;
 
-                <div class="law-card">
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-lg);
 
-                    <div class="law-symbol">
-                        ↗
-                    </div>
+    background: rgba(255, 255, 255, 0.035);
+}
 
-                    <div>
-                        <span>LEI DA REFLEXÃO</span>
+.panel-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
 
-                        <h3>
-                            O ângulo de incidência é igual
-                            ao ângulo de reflexão.
-                        </h3>
-                    </div>
+.panel-tag,
+.mirror-card span,
+.fact strong {
+    color: var(--blue-light);
 
-                    <div class="law-formula">
-                        θ<sub>i</sub> = θ<sub>r</sub>
-                    </div>
+    font-size: 10px;
+    font-weight: 700;
 
-                </div>
+    letter-spacing: 2px;
+}
 
-            </div>
+.panel-header h3 {
+    margin-top: 6px;
 
-        </section>
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 22px;
+}
 
+.panel-symbol {
+    color: var(--cyan);
 
-        <!-- =========================
-             OLHO HUMANO
-        ========================== -->
+    font-family: serif;
+    font-size: 28px;
+}
 
-        <section class="content-section eye-section" id="olho">
 
-            <div class="container">
+/* =========================================================
+   LENS DIAGRAM
+========================================================= */
 
-                <div class="eye-header">
+.lens-diagram {
+    position: relative;
 
-                    <div>
-                        <div class="eyebrow">
-                            04 — ÓPTICA DO OLHO HUMANO
-                        </div>
+    height: 360px;
 
-                        <h2>
-                            Uma câmera biológica
-                            <span>extraordinária.</span>
-                        </h2>
-                    </div>
+    margin-top: 20px;
 
-                    <p>
-                        O olho humano funciona como um sistema óptico
-                        complexo. A luz atravessa diferentes estruturas
-                        até formar uma imagem na retina.
-                    </p>
+    overflow: hidden;
+}
 
-                </div>
+.optical-axis {
+    position: absolute;
 
+    width: 90%;
+    height: 1px;
 
-                <div class="eye-layout">
+    top: 50%;
+    left: 5%;
 
-                    <!-- OLHO CSS -->
+    background: rgba(255, 255, 255, 0.15);
+}
 
-                    <div class="eye-visual">
+.convex-lens {
+    position: absolute;
 
-                        <div class="eye-shape">
+    width: 35px;
+    height: 210px;
 
-                            <div class="iris">
-                                <div class="pupil"></div>
-                            </div>
+    top: 50%;
+    left: 53%;
 
-                            <div class="lens-shape"></div>
+    transform: translate(-50%, -50%);
 
-                            <div class="retina-line"></div>
+    border: 2px solid #61dcff;
+    border-radius: 50%;
 
-                        </div>
+    box-shadow:
+        0 0 25px rgba(38, 217, 255, 0.2),
+        inset 0 0 20px rgba(38, 217, 255, 0.1);
+}
 
-                        <div class="eye-label cornea-label">
-                            <span></span>
-                            Córnea
-                        </div>
+.convex-lens div {
+    position: absolute;
 
-                        <div class="eye-label lens-label">
-                            Cristalino
-                            <span></span>
-                        </div>
+    top: 0;
+    left: 50%;
 
-                        <div class="eye-label retina-label">
-                            <span></span>
-                            Retina
-                        </div>
+    width: 1px;
+    height: 100%;
 
-                        <div class="eye-label optic-label">
-                            Nervo óptico
-                            <span></span>
-                        </div>
+    transform: translateX(-50%);
 
-                    </div>
+    background: rgba(255, 255, 255, 0.25);
+}
 
+.object-arrow,
+.image-arrow {
+    position: absolute;
 
-                    <!-- ESTRUTURAS -->
+    bottom: 50%;
+}
 
-                    <div class="eye-info">
+.object-arrow {
+    left: 8%;
+}
 
-                        <article class="eye-info-card active">
-                            <div class="eye-number">01</div>
+.image-arrow {
+    left: 80%;
+}
 
-                            <div>
-                                <h3>Córnea</h3>
+.arrow-body,
+.image-body {
+    width: 2px;
+    height: 90px;
 
-                                <p>
-                                    Primeira superfície responsável
-                                    por desviar a luz que entra no olho.
-                                </p>
-                            </div>
-                        </article>
+    background: #62dfff;
+}
 
+.arrow-head,
+.image-head {
+    width: 0;
+    height: 0;
 
-                        <article class="eye-info-card">
-                            <div class="eye-number">02</div>
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 12px solid #62dfff;
 
-                            <div>
-                                <h3>Cristalino</h3>
+    transform: translate(-4px, 0);
+}
 
-                                <p>
-                                    Lente natural que ajusta seu formato
-                                    para focalizar objetos próximos ou distantes.
-                                </p>
-                            </div>
-                        </article>
+.image-body {
+    height: 130px;
+    background: var(--orange);
+}
 
+.image-head {
+    border-bottom-color: var(--orange);
+}
 
-                        <article class="eye-info-card">
-                            <div class="eye-number">03</div>
+.object-arrow span,
+.image-arrow span {
+    position: absolute;
 
-                            <div>
-                                <h3>Retina</h3>
+    width: 90px;
 
-                                <p>
-                                    Camada sensível à luz onde os
-                                    fotorreceptores transformam luz em
-                                    sinais elétricos.
-                                </p>
-                            </div>
-                        </article>
+    top: -25px;
+    left: -35px;
 
+    color: rgba(255, 255, 255, 0.55);
 
-                        <article class="eye-info-card">
-                            <div class="eye-number">04</div>
+    font-size: 10px;
+}
 
-                            <div>
-                                <h3>Nervo óptico</h3>
+.focus-point {
+    position: absolute;
 
-                                <p>
-                                    Conduz os sinais produzidos na retina
-                                    em direção ao cérebro.
-                                </p>
-                            </div>
-                        </article>
+    top: calc(50% + 8px);
 
-                    </div>
+    color: var(--cyan);
 
-                </div>
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 12px;
+}
 
-            </div>
-        </section>
+.focus-left {
+    left: 34%;
+}
 
+.focus-right {
+    left: 69%;
+}
 
-        <!-- =========================
-             VISÃO GERAL
-        ========================== -->
+.light-ray {
+    position: absolute;
 
-        <section class="summary-section">
+    left: 8%;
 
-            <div class="container">
+    width: 45%;
 
-                <div class="summary-box">
+    height: 1px;
 
-                    <div class="summary-content">
+    transform-origin: left;
 
-                        <div class="eyebrow">
-                            CONECTANDO OS CONCEITOS
-                        </div>
+    background: #62dfff;
 
-                        <h2>
-                            Tudo começa com
-                            <span>a luz.</span>
-                        </h2>
+    opacity: 0.65;
+}
 
-                        <p>
-                            Formação de imagens, cores, reflexão e visão
-                            são diferentes manifestações dos mesmos
-                            princípios fundamentais da Óptica.
-                        </p>
+.ray-a {
+    top: 38%;
+    transform: rotate(0deg);
+}
 
-                    </div>
+.ray-b {
+    top: 50%;
+    transform: rotate(0deg);
+}
 
+.ray-c {
+    top: 62%;
+    transform: rotate(0deg);
+}
 
-                    <div class="summary-flow">
+.diagram-legend {
+    display: flex;
+    gap: 25px;
 
-                        <div class="flow-item">
-                            <span class="flow-number">01</span>
-                            <strong>Luz</strong>
-                        </div>
+    color: rgba(255, 255, 255, 0.45);
 
-                        <span class="flow-arrow">→</span>
+    font-size: 11px;
+}
 
-                        <div class="flow-item">
-                            <span class="flow-number">02</span>
-                            <strong>Interação</strong>
-                        </div>
+.diagram-legend div {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
 
-                        <span class="flow-arrow">→</span>
+.legend-color {
+    width: 8px;
+    height: 8px;
 
-                        <div class="flow-item">
-                            <span class="flow-number">03</span>
-                            <strong>Imagem</strong>
-                        </div>
+    border-radius: 50%;
+}
 
-                        <span class="flow-arrow">→</span>
+.legend-color.blue {
+    background: var(--cyan);
+}
 
-                        <div class="flow-item">
-                            <span class="flow-number">04</span>
-                            <strong>Percepção</strong>
-                        </div>
+.legend-color.orange {
+    background: var(--orange);
+}
 
-                    </div>
 
-                </div>
+/* =========================================================
+   INFO CARDS
+========================================================= */
 
-            </div>
+.info-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
 
-        </section>
+.info-card {
+    display: grid;
+    grid-template-columns: 42px 1fr;
 
+    gap: 15px;
 
-        <!-- =========================
-             CURIOSIDADES
-        ========================== -->
+    padding: 24px;
 
-        <section class="facts-section">
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-md);
 
-            <div class="container">
+    background: rgba(255, 255, 255, 0.035);
+}
 
-                <div class="section-heading centered">
+.info-icon {
+    width: 40px;
+    height: 40px;
 
-                    <div class="eyebrow dark-eyebrow">
-                        VOCÊ SABIA?
-                    </div>
+    display: grid;
+    place-items: center;
 
-                    <h2>
-                        Óptica no
-                        <span>cotidiano.</span>
-                    </h2>
+    border-radius: 10px;
 
-                </div>
+    background: rgba(38, 217, 255, 0.08);
 
+    color: var(--cyan);
 
-                <div class="facts-grid">
+    font-size: 18px;
+}
 
-                    <div class="fact">
-                        <strong>01</strong>
-                        <h3>Celulares</h3>
-                        <p>
-                            As câmeras utilizam sistemas de lentes
-                            para focalizar a luz sobre um sensor.
-                        </p>
-                    </div>
+.info-card h3 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 17px;
+}
 
-                    <div class="fact">
-                        <strong>02</strong>
-                        <h3>Arco-íris</h3>
-                        <p>
-                            A dispersão da luz solar nas gotas de água
-                            separa diferentes comprimentos de onda.
-                        </p>
-                    </div>
+.info-card p {
+    margin-top: 8px;
 
-                    <div class="fact">
-                        <strong>03</strong>
-                        <h3>Óculos</h3>
-                        <p>
-                            Lentes corretivas alteram a trajetória da luz
-                            para que a imagem seja formada corretamente.
-                        </p>
-                    </div>
+    color: rgba(255, 255, 255, 0.48);
 
-                    <div class="fact">
-                        <strong>04</strong>
-                        <h3>Fibra óptica</h3>
-                        <p>
-                            A reflexão interna total permite transmitir
-                            informações através de longas distâncias.
-                        </p>
-                    </div>
+    font-size: 12px;
+}
 
-                </div>
+.formula-card {
+    margin-top: auto;
 
-            </div>
+    padding: 25px;
 
-        </section>
+    border-radius: var(--radius-md);
 
-    </main>
+    background: linear-gradient(
+        135deg,
+        rgba(37, 99, 255, 0.2),
+        rgba(38, 217, 255, 0.06)
+    );
 
+    border: 1px solid rgba(83, 131, 255, 0.2);
+}
 
-    <!-- =========================
-         FOOTER
-    ========================== -->
+.formula-card > span {
+    color: var(--cyan);
 
-    <footer class="footer">
+    font-size: 10px;
+    letter-spacing: 2px;
+}
 
-        <div class="container footer-grid">
+.formula {
+    margin: 12px 0;
 
-            <div>
+    font-family: "Space Grotesk", sans-serif;
 
-                <a href="#inicio" class="logo footer-logo">
-                    <span class="logo-symbol">◉</span>
-                    <span>ÓPTICA<span class="logo-dot">.</span></span>
-                </a>
+    font-size: 30px;
+}
 
-                <p>
-                    Um espaço para compreender a luz,
-                    as imagens e a visão através da Física.
-                </p>
+.formula small,
+.formula-card small {
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 11px;
+}
 
-            </div>
 
+/* =========================================================
+   CORES
+========================================================= */
 
-            <div class="footer-links">
+.colors-section {
+    padding: 130px 0;
+    background: #ffffff;
+}
 
-                <div>
-                    <span>CONTEÚDO</span>
-                    <a href="#formacao">Formação de imagens</a>
-                    <a href="#cores">Física das cores</a>
-                </div>
+.split-heading {
+    display: grid;
+    grid-template-columns: 1fr 0.65fr;
 
-                <div>
-                    <span>ÓPTICA</span>
-                    <a href="#espelhos">Espelhos</a>
-                    <a href="#olho">Olho humano</a>
-                </div>
+    align-items: end;
 
-            </div>
+    gap: 80px;
+}
 
-        </div>
+.dark-eyebrow {
+    color: #667085;
+}
 
+.split-heading > p {
+    color: var(--muted);
+    font-size: 15px;
+}
 
-        <div class="container footer-bottom">
+.spectrum-container {
+    margin-top: 75px;
+}
 
-            <span>
-                © 2026 — Projeto educacional de Óptica
-            </span>
+.spectrum {
+    display: flex;
 
-            <span>
-                Luz • Ciência • Conhecimento
-            </span>
+    height: 80px;
 
-        </div>
+    border-radius: 100px;
 
-    </footer>
+    overflow: hidden;
 
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
 
-</body>
-</html>
+.spectrum-color {
+    flex: 1;
+}
+
+.violet {
+    background: #7734ff;
+}
+
+.spectrum .blue {
+    background: #245bff;
+}
+
+.cyan {
+    background: #00cfff;
+}
+
+.green {
+    background: #24d88d;
+}
+
+.yellow {
+    background: #f4e12e;
+}
+
+.orange {
+    background: #ff8b2e;
+}
+
+.red {
+    background: #f04444;
+}
+
+.spectrum-labels {
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 15px;
+
+    color: #98a2b3;
+
+    font-size: 10px;
+}
+
+.spectrum-labels div {
+    display: flex;
+    flex-direction: column;
+}
+
+.spectrum-labels strong {
+    color: #344054;
+    font-size: 12px;
+}
+
+.color-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
+
+    margin-top: 50px;
+}
+
+.color-card {
+    padding: 30px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+
+    background: #fafbfc;
+}
+
+.color-circle {
+    width: 70px;
+    height: 70px;
+
+    margin-bottom: 25px;
+
+    border-radius: 50%;
+}
+
+.rgb-circle {
+    background:
+        radial-gradient(circle at 38% 45%, #ff2d55 0 24%, transparent 25%),
+        radial-gradient(circle at 62% 45%, #22c55e 0 24%, transparent 25%),
+        radial-gradient(circle at 50% 65%, #1677ff 0 24%, transparent 25%);
+}
+
+.pigment-circle {
+    background:
+        radial-gradient(circle at 35% 50%, #00b8c8 0 35%, transparent 36%),
+        radial-gradient(circle at 65% 50%, #ffdf21 0 35%, transparent 36%),
+        radial-gradient(circle at 50% 75%, #ef35ad 0 35%, transparent 36%);
+}
+
+.white-circle {
+    background:
+        conic-gradient(
+            #ff4040,
+            #ffdf2e,
+            #30db77,
+            #28c8ff,
+            #645aff,
+            #d745ff,
+            #ff4040
+        );
+
+    box-shadow: 0 0 30px rgba(80, 150, 255, 0.2);
+}
+
+.color-card h3 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 20px;
+}
+
+.color-card p {
+    margin-top: 10px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+.rgb-bars,
+.cmy-bars {
+    display: flex;
+    gap: 4px;
+
+    margin-top: 25px;
+
+    height: 5px;
+}
+
+.rgb-bars span,
+.cmy-bars span {
+    flex: 1;
+    border-radius: 20px;
+}
+
+.rgb-bars span:nth-child(1) {
+    background: #ff3355;
+}
+
+.rgb-bars span:nth-child(2) {
+    background: #24cf6b;
+}
+
+.rgb-bars span:nth-child(3) {
+    background: #2476ff;
+}
+
+.cmy-bars span:nth-child(1) {
+    background: #00c5d5;
+}
+
+.cmy-bars span:nth-child(2) {
+    background: #ef35ad;
+}
+
+.cmy-bars span:nth-child(3) {
+    background: #ffd51e;
+}
+
+.white-spectrum {
+    height: 5px;
+
+    margin-top: 25px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #743bff,
+            #2965ff,
+            #21c9ff,
+            #2bd875,
+            #ffe229,
+            #ff892f,
+            #ef4040
+        );
+}
+
+
+/* =========================================================
+   ESPELHOS
+========================================================= */
+
+.mirror-section {
+    padding: 130px 0;
+
+    background:
+        radial-gradient(circle at 10% 70%, rgba(255, 138, 61, 0.08), transparent 25%),
+        #f4f6fa;
+}
+
+.reflection-layout {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+
+    gap: 25px;
+
+    margin-top: 70px;
+}
+
+.reflection-diagram {
+    position: relative;
+
+    min-height: 480px;
+
+    border-radius: var(--radius-lg);
+
+    background:
+        linear-gradient(rgba(15, 23, 42, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15, 23, 42, 0.035) 1px, transparent 1px);
+
+    background-size: 40px 40px;
+
+    border: 1px solid var(--border);
+
+    overflow: hidden;
+}
+
+.mirror-surface {
+    position: absolute;
+
+    width: 8px;
+    height: 72%;
+
+    left: 50%;
+    top: 14%;
+
+    transform: translateX(-50%);
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        90deg,
+        #667085,
+        #dce3ed,
+        #667085
+    );
+
+    box-shadow: 0 0 30px rgba(37, 99, 255, 0.1);
+}
+
+.normal-line {
+    position: absolute;
+
+    width: 1px;
+    height: 72%;
+
+    left: 50%;
+    top: 14%;
+
+    transform: translateX(-50%);
+
+    border-left: 1px dashed rgba(37, 99, 255, 0.4);
+}
+
+.incident-ray,
+.reflected-ray {
+    position: absolute;
+
+    width: 260px;
+    height: 3px;
+
+    left: calc(50% - 260px);
+
+    top: 50%;
+
+    transform-origin: right center;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #2563ff
+    );
+
+    box-shadow: 0 0 12px rgba(37, 99, 255, 0.3);
+}
+
+.incident-ray {
+    transform: rotate(28deg);
+}
+
+.reflected-ray {
+    left: 50%;
+
+    transform-origin: left center;
+
+    transform: rotate(-28deg);
+
+    background: linear-gradient(
+        90deg,
+        #ff8a3d,
+        transparent
+    );
+}
+
+.angle {
+    position: absolute;
+
+    top: 42%;
+
+    color: #2563ff;
+
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 14px;
+}
+
+.angle-i {
+    left: 43%;
+}
+
+.angle-r {
+    left: 54%;
+    color: var(--orange);
+}
+
+.normal-label {
+    position: absolute;
+
+    top: 17%;
+    left: 52%;
+
+    color: #2563ff;
+
+    font-size: 10px;
+}
+
+.mirror-label {
+    position: absolute;
+
+    bottom: 9%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    color: #667085;
+
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.reflection-equation {
+    position: absolute;
+
+    left: 50%;
+    bottom: 15%;
+
+    transform: translateX(-50%);
+
+    padding: 10px 16px;
+
+    border-radius: 100px;
+
+    background: white;
+
+    color: #101828;
+
+    font-family: "Space Grotesk", sans-serif;
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================================
+   TIPOS DE ESPELHOS
+========================================================= */
+
+.mirror-types {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.mirror-card {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+
+    gap: 22px;
+
+    padding: 20px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+
+    background: white;
+}
+
+.mirror-card h3 {
+    margin: 4px 0;
+
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 18px;
+}
+
+.mirror-card p {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+
+/* Mirror illustrations */
+
+.mirror-illustration {
+    display: grid;
+    place-items: center;
+
+    min-height: 100px;
+
+    border-radius: 12px;
+
+    background: #f5f7fa;
+}
+
+.mirror-illustration div {
+    width: 5px;
+    height: 70px;
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        90deg,
+        #667085,
+        white,
+        #667085
+    );
+}
+
+.mirror-illustration.concave div {
+    border-radius: 50%;
+    transform: scaleX(0.65);
+}
+
+.mirror-illustration.convex div {
+    border-radius: 50%;
+    transform: scaleX(1.4);
+}
+
+.law-card {
+    display: grid;
+    grid-template-columns: 70px 1fr auto;
+
+    align-items: center;
+
+    gap: 25px;
+
+    margin-top: 25px;
+    padding: 28px 32px;
+
+    border-radius: var(--radius-md);
+
+    background: var(--dark);
+
+    color: white;
+}
+
+.law-symbol {
+    width: 60px;
+    height: 60px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 15px;
+
+    background: rgba(255, 138, 61, 0.12);
+
+    color: var(--orange);
+
+    font-size: 25px;
+}
+
+.law-card span {
+    color: var(--orange);
+
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.law-card h3 {
+    margin-top: 5px;
+
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 18px;
+}
+
+.law-formula {
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 28px;
+
+    color: #ffb477;
+}
+
+
+/* =========================================================
+   OLHO
+========================================================= */
+
+.eye-section {
+    padding: 130px 0;
+
+    background:
+        radial-gradient(circle at 75% 40%, rgba(38, 217, 255, 0.07), transparent 30%),
+        #07101f;
+
+    color: white;
+}
+
+.eye-header {
+    display: grid;
+    grid-template-columns: 1fr 0.6fr;
+
+    align-items: end;
+
+    gap: 80px;
+}
+
+.eye-header > p {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.eye-layout {
+    display: grid;
+    grid-template-columns: 1fr 0.75fr;
+
+    gap: 90px;
+
+    align-items: center;
+
+    margin-top: 80px;
+}
+
+
+/* =========================================================
+   OLHO CSS
+========================================================= */
+
+.eye-visual {
+    position: relative;
+
+    min-height: 500px;
+}
+
+.eye-shape {
+    position: absolute;
+
+    width: 420px;
+    height: 270px;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    border: 3px solid rgba(98, 223, 255, 0.65);
+
+    border-radius: 65% 35% 35% 65% / 50% 50% 50% 50%;
+
+    background:
+        radial-gradient(
+            circle at 32% 50%,
+            rgba(50, 210, 255, 0.12),
+            transparent 28%
+        ),
+        rgba(38, 217, 255, 0.025);
+
+    box-shadow:
+        0 0 40px rgba(38, 217, 255, 0.08),
+        inset 0 0 50px rgba(38, 217, 255, 0.04);
+}
+
+.iris {
+    position: absolute;
+
+    width: 100px;
+    height: 100px;
+
+    left: 27%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        repeating-conic-gradient(
+            from 0deg,
+            #1b9fbf 0deg 8deg,
+            #0c526a 8deg 14deg
+        );
+
+    box-shadow:
+        0 0 30px rgba(38, 217, 255, 0.25),
+        inset 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+.pupil {
+    position: absolute;
+
+    width: 42px;
+    height: 42px;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background: #020611;
+
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+}
+
+.lens-shape {
+    position: absolute;
+
+    width: 28px;
+    height: 115px;
+
+    left: 39%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    border: 2px solid rgba(255, 255, 255, 0.6);
+
+    border-radius: 50%;
+}
+
+.retina-line {
+    position: absolute;
+
+    width: 3px;
+    height: 180px;
+
+    right: 14%;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    border-radius: 20px;
+
+    background: #ff8a3d;
+
+    box-shadow: 0 0 20px rgba(255, 138, 61, 0.35);
+}
+
+.eye-label {
+    position: absolute;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: rgba(255, 255, 255, 0.7);
+
+    font-size: 11px;
+}
+
+.eye-label span {
+    width: 45px;
+    height: 1px;
+
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.cornea-label {
+    top: 28%;
+    left: 3%;
+}
+
+.lens-label {
+    top: 23%;
+    right: 8%;
+}
+
+.retina-label {
+    bottom: 27%;
+    right: 0;
+
+    color: #ffab79;
+}
+
+.optic-label {
+    bottom: 12%;
+    left: 10%;
+}
+
+
+/* =========================================================
+   EYE INFO
+========================================================= */
+
+.eye-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.eye-info-card {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+
+    gap: 18px;
+
+    padding: 20px;
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: var(--radius-md);
+
+    transition: background 0.25s ease;
+}
+
+.eye-info-card:hover,
+.eye-info-card.active {
+    background: rgba(255, 255, 255, 0.045);
+}
+
+.eye-number {
+    color: #4b6685;
+
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 13px;
+}
+
+.eye-info-card h3 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 18px;
+}
+
+.eye-info-card p {
+    margin-top: 5px;
+
+    color: rgba(255, 255, 255, 0.43);
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   SUMMARY
+========================================================= */
+
+.summary-section {
+    padding: 100px 0;
+
+    background: #f7f9fc;
+}
+
+.summary-box {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+
+    align-items: center;
+
+    gap: 70px;
+
+    padding: 65px;
+
+    border-radius: var(--radius-lg);
+
+    background:
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(38, 217, 255, 0.1),
+            transparent 25%
+        ),
+        var(--dark);
+
+    color: white;
+}
+
+.summary-content p {
+    max-width: 470px;
+
+    margin-top: 20px;
+
+    color: rgba(255, 255, 255, 0.5);
+
+    font-size: 14px;
+}
+
+.summary-content h2 span {
+    color: var(--cyan);
+}
+
+.summary-flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 15px;
+}
+
+.flow-item {
+    min-width: 105px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 8px;
+}
+
+.flow-number {
+    width: 50px;
+    height: 50px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+
+    color: var(--cyan);
+
+    font-size: 11px;
+}
+
+.flow-item strong {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 13px;
+}
+
+.flow-arrow {
+    color: #40536e;
+    font-size: 20px;
+}
+
+
+/* =========================================================
+   FATOS
+========================================================= */
+
+.facts-section {
+    padding: 120px 0;
+    background: white;
+}
+
+.facts-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    margin-top: 65px;
+
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.fact {
+    padding: 35px 25px;
+
+    border-right: 1px solid var(--border);
+}
+
+.fact:last-child {
+    border-right: none;
+}
+
+.fact h3 {
+    margin-top: 25px;
+
+    font-family: "Space Grotes"
+}
