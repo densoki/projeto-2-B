@@ -1,29 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
 :root {
-    --bg-primary: #0f172a;
-    --card-bg: #1e293b;
-    --text-color: #f8fafc;
-    --accent-color: #38bdf8;
-    --highlight: #f59e0b;
+    --bg-gradient: linear-gradient(135deg, #0b0d19 0%, #161a30 100%);
+    --card-bg: rgba(22, 27, 46, 0.7);
+    --card-border: rgba(255, 255, 255, 0.08);
+    --text-main: #f1f5f9;
+    --text-muted: #94a3b8;
+    --accent-cyan: #06b6d4;
+    --accent-purple: #a855f7;
+    --accent-gold: #f59e0b;
+    --glow-cyan: rgba(6, 182, 212, 0.25);
+    --glow-gold: rgba(245, 158, 11, 0.25);
+}
+
+* {
+    box-sizing: border-box;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: var(--bg-primary);
-    color: var(--text-color);
-    line-height: 1.6;
+    background: var(--bg-gradient);
+    background-attachment: fixed;
+    color: var(--text-main);
+    line-height: 1.7;
+    min-height: 100vh;
 }
 
+/* Header & Navegação */
 header {
-    background-color: #0284c7;
-    padding: 1.5rem;
-    text-align: center;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    background: rgba(11, 13, 25, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 1.25rem 2rem;
+    border-bottom: 1px solid var(--card-border);
 }
 
 header h1 {
     margin: 0 0 1rem 0;
+    font-size: 1.8rem;
+    font-weight: 800;
+    text-align: center;
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.02em;
 }
 
 nav ul {
@@ -32,83 +57,157 @@ nav ul {
     margin: 0;
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 1rem;
     flex-wrap: wrap;
 }
 
 nav a {
-    color: white;
+    color: var(--text-muted);
     text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    transition: all 0.2s ease;
 }
 
 nav a:hover {
-    color: var(--highlight);
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.05);
 }
 
+/* Conteúdo Principal */
 main {
-    max-width: 900px;
-    margin: 2rem auto;
-    padding: 0 1rem;
+    max-width: 860px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
 }
 
+/* Cartões com efeito Glassmorphism */
 .card {
-    background-color: var(--card-bg);
-    border-radius: 8px;
-    padding: 1.5rem;
+    background: var(--card-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 2rem;
     margin-bottom: 2rem;
-    border-left: 5px solid var(--accent-color);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-.card.destaque {
-    border-left-color: var(--highlight);
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--accent-cyan);
+    box-shadow: 0 0 12px var(--accent-cyan);
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 25px 30px -5px rgba(0, 0, 0, 0.4), 0 0 20px var(--glow-cyan);
+}
+
+.card.destaque::before {
+    background: var(--accent-gold);
+    box-shadow: 0 0 12px var(--accent-gold);
+}
+
+.card.destaque:hover {
+    box-shadow: 0 25px 30px -5px rgba(0, 0, 0, 0.4), 0 0 20px var(--glow-gold);
 }
 
 h2 {
-    color: var(--accent-color);
+    color: var(--accent-cyan);
+    font-size: 1.4rem;
+    font-weight: 700;
     margin-top: 0;
+    margin-bottom: 1rem;
 }
 
 .destaque h2 {
-    color: var(--highlight);
+    color: var(--accent-gold);
 }
 
+p, li {
+    color: var(--text-muted);
+}
+
+strong {
+    color: var(--text-main);
+}
+
+ul {
+    padding-left: 1.2rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+/* Fórmulas Interativas */
 .formula {
-    background-color: #0f172a;
-    padding: 0.5rem;
+    background: rgba(11, 13, 25, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    border-radius: 8px;
     text-align: center;
-    border-radius: 4px;
-    font-family: monospace;
+    color: var(--accent-cyan);
+    font-size: 1.1rem;
+    margin: 1.5rem 0;
 }
 
+/* Botões Modernos */
 button {
-    background-color: var(--accent-color);
-    color: #0f172a;
+    background: linear-gradient(135deg, var(--accent-cyan), #0284c7);
+    color: #ffffff;
     border: none;
-    padding: 0.5rem 1rem;
-    font-weight: bold;
-    border-radius: 4px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.2s;
+    box-shadow: 0 4px 14px var(--glow-cyan);
+    transition: all 0.2s ease;
 }
 
 button:hover {
-    background-color: #7dd3fc;
+    filter: brightness(1.1);
+    transform: scale(1.02);
 }
 
+button:active {
+    transform: scale(0.98);
+}
+
+/* Área Interativa Dinâmica */
 .interactive-area {
-    margin-top: 1rem;
-    padding: 1rem;
-    background-color: #0f172a;
-    border-radius: 4px;
+    margin-top: 1.5rem;
+    padding: 1.25rem;
+    background: rgba(11, 13, 25, 0.8);
+    border: 1px dashed rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
     display: none;
+    animation: fadeIn 0.3s ease-in-out;
 }
 
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Rodapé */
 footer {
     text-align: center;
-    padding: 1.5rem;
-    background-color: #0284c7;
-    margin-top: 2rem;
+    padding: 2rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--card-border);
+    margin-top: 4rem;
 }
