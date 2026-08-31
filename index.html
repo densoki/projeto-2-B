@@ -1,140 +1,1043 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Óptica - Física</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
-}
+    <meta name="description"
+        content="Site educativo sobre Óptica: formação de imagens, física das cores, espelhos, reflexão e óptica do olho humano.">
 
-body{
-    background:#f4f4f4;
-    color:#333;
-}
+    <title>Óptica | Luz, Imagens e Visão</title>
 
-header{
-    background:linear-gradient(90deg,#004e92,#000428);
-    color:white;
-    text-align:center;
-    padding:40px;
-}
+    <link rel="stylesheet" href="style.css">
 
-nav{
-    background:#222;
-    padding:15px;
-    text-align:center;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    margin:15px;
-    font-weight:bold;
-}
-
-nav a:hover{
-    color:#00d9ff;
-}
-
-section{
-    max-width:1000px;
-    margin:30px auto;
-    background:white;
-    padding:25px;
-    border-radius:10px;
-    box-shadow:0 0 10px rgba(0,0,0,.2);
-}
-
-section img{
-    width:100%;
-    max-height:350px;
-    object-fit:cover;
-    border-radius:10px;
-    margin:20px 0;
-}
-
-h2{
-    color:#004e92;
-    margin-bottom:10px;
-}
-
-footer{
-    background:#000428;
-    color:white;
-    text-align:center;
-    padding:15px;
-}
-</style>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
 
-<header>
-    <h1>Óptica</h1>
-    <p>Conheça os principais conceitos da óptica.</p>
-</header>
+    <!-- =========================
+         HEADER / NAVEGAÇÃO
+    ========================== -->
 
-<nav>
-    <a href="#imagens">Formação de Imagens</a>
-    <a href="#cores">Física das Cores</a>
-    <a href="#espelhos">Espelhos</a>
-    <a href="#olho">Olho Humano</a>
-</nav>
+    <header class="header">
+        <div class="container nav-container">
 
-<section id="imagens">
-    <h2>📷 Uso e Formação de Imagens</h2>
-    <img src="photo-1516035069371-29a1b244cc32.jpeg" alt="Câmera fotográfica">
+            <a href="#inicio" class="logo">
+                <span class="logo-symbol">◉</span>
+                <span>ÓPTICA<span class="logo-dot">.</span></span>
+            </a>
 
-    <p>
-        A formação de imagens ocorre quando a luz refletida por um objeto passa por
-        lentes ou espelhos. Esse princípio é utilizado em câmeras, telescópios,
-        microscópios e diversos equipamentos ópticos.
-    </p>
-</section>
+            <nav class="nav">
+                <a href="#formacao">Imagens</a>
+                <a href="#cores">Cores</a>
+                <a href="#espelhos">Espelhos</a>
+                <a href="#olho">Olho Humano</a>
+            </nav>
 
-<section id="cores">
-    <h2>🌈 Física das Cores</h2>
+            <a href="#explorar" class="nav-button">
+                Explorar
+                <span>→</span>
+            </a>
 
-    <img src="photo-1500530855697-b586d89ba3ee.jpeg" alt="Arco-íris">
+        </div>
+    </header>
 
-    <p>
-        As cores são percebidas devido às diferentes frequências da luz visível.
-        A luz branca é formada pela mistura de todas as cores do espectro.
-    </p>
-</section>
 
-<section id="espelhos">
-    <h2>🪞 Espelhos e Reflexão</h2>
+    <main>
 
-    <img src="photo-1517841905240-472988babdf9.jpeg" alt="Espelho">
+        <!-- =========================
+             HERO
+        ========================== -->
 
-    <p>
-        A reflexão ocorre quando a luz atinge uma superfície e retorna ao meio de origem.
-        Os espelhos planos formam imagens virtuais, enquanto os espelhos esféricos
-        podem ampliar ou reduzir as imagens.
-    </p>
-</section>
+        <section class="hero" id="inicio">
 
-<section id="olho">
-    <h2>👁️ A Óptica do Olho Humano</h2>
+            <div class="hero-glow glow-one"></div>
+            <div class="hero-glow glow-two"></div>
 
-    <img src="photo-1516574187841-cb9cc2ca948b.jpeg" alt="Olho humano">
+            <div class="container hero-grid">
 
-    <p>
-        O olho humano funciona como uma lente natural. A luz atravessa a córnea e o
-        cristalino até chegar à retina, onde a imagem é formada e enviada ao cérebro.
-    </p>
-</section>
+                <div class="hero-content">
 
-<footer>
-    <p>Site educativo sobre Óptica - HTML & CSS</p>
-</footer>
+                    <div class="eyebrow">
+                        <span class="eyebrow-line"></span>
+                        FÍSICA • ÓPTICA
+                    </div>
+
+                    <h1>
+                        O mundo através
+                        <span>da luz.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Descubra como a luz se propaga, forma imagens,
+                        produz cores, interage com espelhos e permite
+                        que o olho humano enxergue o mundo.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="#explorar" class="button button-primary">
+                            Começar a explorar
+                            <span>↓</span>
+                        </a>
+
+                        <a href="#formacao" class="button button-secondary">
+                            Ver conteúdo
+                        </a>
+                    </div>
+
+                    <div class="hero-stats">
+                        <div>
+                            <strong>04</strong>
+                            <span>Temas principais</span>
+                        </div>
+
+                        <div>
+                            <strong>∞</strong>
+                            <span>Fenômenos da luz</span>
+                        </div>
+
+                        <div>
+                            <strong>c</strong>
+                            <span>Velocidade da luz</span>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- ILUSTRAÇÃO DA LUZ -->
+
+                <div class="hero-visual">
+
+                    <div class="orbit orbit-one"></div>
+                    <div class="orbit orbit-two"></div>
+
+                    <div class="light-core">
+                        <div class="core-inner"></div>
+                    </div>
+
+                    <div class="ray ray-one"></div>
+                    <div class="ray ray-two"></div>
+                    <div class="ray ray-three"></div>
+                    <div class="ray ray-four"></div>
+                    <div class="ray ray-five"></div>
+
+                    <div class="visual-label label-top">
+                        <span class="label-dot"></span>
+                        LUZ
+                    </div>
+
+                    <div class="visual-label label-bottom">
+                        <span>λ</span>
+                        Comprimento de onda
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =========================
+             INTRODUÇÃO
+        ========================== -->
+
+        <section class="intro-section" id="explorar">
+
+            <div class="container">
+
+                <div class="section-heading centered">
+
+                    <div class="eyebrow">
+                        <span class="eyebrow-line"></span>
+                        FUNDAMENTOS
+                        <span class="eyebrow-line"></span>
+                    </div>
+
+                    <h2>
+                        A luz é a chave para
+                        <span>compreender o universo.</span>
+                    </h2>
+
+                    <p>
+                        A Óptica é o ramo da Física responsável pelo estudo
+                        da luz e de seus fenômenos. Ela explica desde o
+                        funcionamento de uma câmera até a formação das
+                        imagens em nossos olhos.
+                    </p>
+
+                </div>
+
+
+                <div class="topic-grid">
+
+                    <a href="#formacao" class="topic-card topic-blue">
+                        <div class="card-number">01</div>
+
+                        <div class="topic-icon">◈</div>
+
+                        <h3>Uso e Formação<br>de Imagens</h3>
+
+                        <p>
+                            Entenda como lentes e sistemas ópticos
+                            produzem imagens reais e virtuais.
+                        </p>
+
+                        <span class="card-link">
+                            Explorar tema →
+                        </span>
+                    </a>
+
+
+                    <a href="#cores" class="topic-card topic-purple">
+                        <div class="card-number">02</div>
+
+                        <div class="topic-icon">◉</div>
+
+                        <h3>Física<br>das Cores</h3>
+
+                        <p>
+                            Descubra como diferentes comprimentos
+                            de onda produzem as cores que percebemos.
+                        </p>
+
+                        <span class="card-link">
+                            Explorar tema →
+                        </span>
+                    </a>
+
+
+                    <a href="#espelhos" class="topic-card topic-orange">
+                        <div class="card-number">03</div>
+
+                        <div class="topic-icon">◐</div>
+
+                        <h3>Espelhos<br>e Reflexão</h3>
+
+                        <p>
+                            Conheça a reflexão da luz e os diferentes
+                            tipos de espelhos utilizados no cotidiano.
+                        </p>
+
+                        <span class="card-link">
+                            Explorar tema →
+                        </span>
+                    </a>
+
+
+                    <a href="#olho" class="topic-card topic-green">
+                        <div class="card-number">04</div>
+
+                        <div class="topic-icon">◎</div>
+
+                        <h3>A Óptica do<br>Olho Humano</h3>
+
+                        <p>
+                            Veja como córnea, cristalino e retina
+                            trabalham juntos para formar nossa visão.
+                        </p>
+
+                        <span class="card-link">
+                            Explorar tema →
+                        </span>
+                    </a>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =========================
+             FORMAÇÃO DE IMAGENS
+        ========================== -->
+
+        <section class="content-section dark-section" id="formacao">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div class="eyebrow">
+                        01 — FORMAÇÃO DE IMAGENS
+                    </div>
+
+                    <h2>
+                        Quando a luz encontra
+                        <span>um sistema óptico.</span>
+                    </h2>
+
+                    <p>
+                        A formação de imagens acontece quando os raios
+                        luminosos são desviados por lentes, espelhos ou
+                        outros elementos ópticos.
+                    </p>
+
+                </div>
+
+
+                <div class="image-formation-grid">
+
+                    <div class="diagram-panel">
+
+                        <div class="panel-header">
+                            <div>
+                                <span class="panel-tag">DIAGRAMA</span>
+                                <h3>Lente convergente</h3>
+                            </div>
+
+                            <span class="panel-symbol">f</span>
+                        </div>
+
+
+                        <div class="lens-diagram">
+
+                            <div class="optical-axis"></div>
+
+                            <div class="object-arrow">
+                                <span>Objeto</span>
+                                <div class="arrow-body"></div>
+                                <div class="arrow-head"></div>
+                            </div>
+
+                            <div class="convex-lens">
+                                <div></div>
+                            </div>
+
+                            <div class="focus-point focus-left">
+                                F
+                            </div>
+
+                            <div class="focus-point focus-right">
+                                F'
+                            </div>
+
+                            <div class="light-ray ray-a"></div>
+                            <div class="light-ray ray-b"></div>
+                            <div class="light-ray ray-c"></div>
+
+                            <div class="image-arrow">
+                                <span>Imagem</span>
+                                <div class="image-body"></div>
+                                <div class="image-head"></div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="diagram-legend">
+                            <div>
+                                <span class="legend-color blue"></span>
+                                Raios incidentes
+                            </div>
+
+                            <div>
+                                <span class="legend-color orange"></span>
+                                Imagem formada
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="info-column">
+
+                        <article class="info-card">
+                            <div class="info-icon">+</div>
+
+                            <div>
+                                <h3>Imagem real</h3>
+
+                                <p>
+                                    É formada pelo encontro efetivo dos
+                                    raios luminosos. Pode ser projetada
+                                    sobre uma tela.
+                                </p>
+                            </div>
+                        </article>
+
+
+                        <article class="info-card">
+                            <div class="info-icon">◎</div>
+
+                            <div>
+                                <h3>Imagem virtual</h3>
+
+                                <p>
+                                    Surge do prolongamento aparente dos
+                                    raios de luz. Não pode ser projetada
+                                    diretamente em uma tela.
+                                </p>
+                            </div>
+                        </article>
+
+
+                        <article class="formula-card">
+
+                            <span>Equação de Gauss</span>
+
+                            <div class="formula">
+                                <i>1</i>/<i>f</i>
+                                =
+                                <i>1</i>/<i>p</i>
+                                +
+                                <i>1</i>/<i>p'</i>
+                            </div>
+
+                            <small>
+                                Relação entre distância focal,
+                                objeto e imagem.
+                            </small>
+
+                        </article>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =========================
+             CORES
+        ========================== -->
+
+        <section class="content-section colors-section" id="cores">
+
+            <div class="container">
+
+                <div class="split-heading">
+
+                    <div>
+                        <div class="eyebrow dark-eyebrow">
+                            02 — FÍSICA DAS CORES
+                        </div>
+
+                        <h2>
+                            A cor que vemos
+                            <span>é luz.</span>
+                        </h2>
+                    </div>
+
+                    <p>
+                        A luz visível é uma pequena parte do espectro
+                        eletromagnético. Cada cor corresponde a uma faixa
+                        diferente de comprimentos de onda.
+                    </p>
+
+                </div>
+
+
+                <!-- ESPECTRO -->
+
+                <div class="spectrum-container">
+
+                    <div class="spectrum">
+
+                        <div class="spectrum-color violet"></div>
+                        <div class="spectrum-color blue"></div>
+                        <div class="spectrum-color cyan"></div>
+                        <div class="spectrum-color green"></div>
+                        <div class="spectrum-color yellow"></div>
+                        <div class="spectrum-color orange"></div>
+                        <div class="spectrum-color red"></div>
+
+                    </div>
+
+                    <div class="spectrum-labels">
+
+                        <div>
+                            <strong>380</strong>
+                            nm
+                        </div>
+
+                        <div>
+                            <strong>450</strong>
+                            nm
+                        </div>
+
+                        <div>
+                            <strong>495</strong>
+                            nm
+                        </div>
+
+                        <div>
+                            <strong>570</strong>
+                            nm
+                        </div>
+
+                        <div>
+                            <strong>590</strong>
+                            nm
+                        </div>
+
+                        <div>
+                            <strong>620</strong>
+                            nm
+                        </div>
+
+                        <div>
+                            <strong>750</strong>
+                            nm
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="color-grid">
+
+                    <article class="color-card">
+
+                        <div class="color-circle rgb-circle"></div>
+
+                        <h3>Síntese aditiva</h3>
+
+                        <p>
+                            Na mistura de luzes, as cores primárias
+                            são vermelho, verde e azul (RGB).
+                        </p>
+
+                        <div class="rgb-bars">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                    </article>
+
+
+                    <article class="color-card">
+
+                        <div class="color-circle pigment-circle"></div>
+
+                        <h3>Síntese subtrativa</h3>
+
+                        <p>
+                            É baseada na absorção de luz. É utilizada
+                            em tintas, impressoras e pigmentos.
+                        </p>
+
+                        <div class="cmy-bars">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                    </article>
+
+
+                    <article class="color-card">
+
+                        <div class="color-circle white-circle"></div>
+
+                        <h3>Luz branca</h3>
+
+                        <p>
+                            A luz branca é composta por diferentes
+                            frequências do espectro visível.
+                        </p>
+
+                        <div class="white-spectrum"></div>
+
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =========================
+             ESPELHOS
+        ========================== -->
+
+        <section class="content-section mirror-section" id="espelhos">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div class="eyebrow">
+                        03 — ESPELHOS E REFLEXÃO
+                    </div>
+
+                    <h2>
+                        A luz pode mudar
+                        <span>de direção.</span>
+                    </h2>
+
+                    <p>
+                        Quando a luz encontra uma superfície e retorna
+                        ao meio de origem, ocorre o fenômeno da reflexão.
+                    </p>
+
+                </div>
+
+
+                <div class="reflection-layout">
+
+                    <div class="reflection-diagram">
+
+                        <div class="mirror-surface"></div>
+
+                        <div class="normal-line"></div>
+
+                        <div class="incident-ray"></div>
+
+                        <div class="reflected-ray"></div>
+
+                        <div class="angle angle-i">
+                            i
+                        </div>
+
+                        <div class="angle angle-r">
+                            r
+                        </div>
+
+                        <div class="normal-label">
+                            Normal
+                        </div>
+
+                        <div class="mirror-label">
+                            ESPELHO
+                        </div>
+
+                        <div class="reflection-equation">
+                            i = r
+                        </div>
+
+                    </div>
+
+
+                    <div class="mirror-types">
+
+                        <article class="mirror-card">
+
+                            <div class="mirror-illustration plane">
+                                <div></div>
+                            </div>
+
+                            <div>
+                                <span>TIPO 01</span>
+                                <h3>Espelho plano</h3>
+
+                                <p>
+                                    Forma imagens virtuais, direitas
+                                    e de mesmo tamanho que o objeto.
+                                </p>
+                            </div>
+
+                        </article>
+
+
+                        <article class="mirror-card">
+
+                            <div class="mirror-illustration concave">
+                                <div></div>
+                            </div>
+
+                            <div>
+                                <span>TIPO 02</span>
+                                <h3>Espelho côncavo</h3>
+
+                                <p>
+                                    Pode formar imagens reais ou
+                                    virtuais dependendo da posição
+                                    do objeto.
+                                </p>
+                            </div>
+
+                        </article>
+
+
+                        <article class="mirror-card">
+
+                            <div class="mirror-illustration convex">
+                                <div></div>
+                            </div>
+
+                            <div>
+                                <span>TIPO 03</span>
+                                <h3>Espelho convexo</h3>
+
+                                <p>
+                                    Produz imagens virtuais, direitas
+                                    e menores que o objeto.
+                                </p>
+                            </div>
+
+                        </article>
+
+                    </div>
+
+                </div>
+
+
+                <div class="law-card">
+
+                    <div class="law-symbol">
+                        ↗
+                    </div>
+
+                    <div>
+                        <span>LEI DA REFLEXÃO</span>
+
+                        <h3>
+                            O ângulo de incidência é igual
+                            ao ângulo de reflexão.
+                        </h3>
+                    </div>
+
+                    <div class="law-formula">
+                        θ<sub>i</sub> = θ<sub>r</sub>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             OLHO HUMANO
+        ========================== -->
+
+        <section class="content-section eye-section" id="olho">
+
+            <div class="container">
+
+                <div class="eye-header">
+
+                    <div>
+                        <div class="eyebrow">
+                            04 — ÓPTICA DO OLHO HUMANO
+                        </div>
+
+                        <h2>
+                            Uma câmera biológica
+                            <span>extraordinária.</span>
+                        </h2>
+                    </div>
+
+                    <p>
+                        O olho humano funciona como um sistema óptico
+                        complexo. A luz atravessa diferentes estruturas
+                        até formar uma imagem na retina.
+                    </p>
+
+                </div>
+
+
+                <div class="eye-layout">
+
+                    <!-- OLHO CSS -->
+
+                    <div class="eye-visual">
+
+                        <div class="eye-shape">
+
+                            <div class="iris">
+                                <div class="pupil"></div>
+                            </div>
+
+                            <div class="lens-shape"></div>
+
+                            <div class="retina-line"></div>
+
+                        </div>
+
+                        <div class="eye-label cornea-label">
+                            <span></span>
+                            Córnea
+                        </div>
+
+                        <div class="eye-label lens-label">
+                            Cristalino
+                            <span></span>
+                        </div>
+
+                        <div class="eye-label retina-label">
+                            <span></span>
+                            Retina
+                        </div>
+
+                        <div class="eye-label optic-label">
+                            Nervo óptico
+                            <span></span>
+                        </div>
+
+                    </div>
+
+
+                    <!-- ESTRUTURAS -->
+
+                    <div class="eye-info">
+
+                        <article class="eye-info-card active">
+                            <div class="eye-number">01</div>
+
+                            <div>
+                                <h3>Córnea</h3>
+
+                                <p>
+                                    Primeira superfície responsável
+                                    por desviar a luz que entra no olho.
+                                </p>
+                            </div>
+                        </article>
+
+
+                        <article class="eye-info-card">
+                            <div class="eye-number">02</div>
+
+                            <div>
+                                <h3>Cristalino</h3>
+
+                                <p>
+                                    Lente natural que ajusta seu formato
+                                    para focalizar objetos próximos ou distantes.
+                                </p>
+                            </div>
+                        </article>
+
+
+                        <article class="eye-info-card">
+                            <div class="eye-number">03</div>
+
+                            <div>
+                                <h3>Retina</h3>
+
+                                <p>
+                                    Camada sensível à luz onde os
+                                    fotorreceptores transformam luz em
+                                    sinais elétricos.
+                                </p>
+                            </div>
+                        </article>
+
+
+                        <article class="eye-info-card">
+                            <div class="eye-number">04</div>
+
+                            <div>
+                                <h3>Nervo óptico</h3>
+
+                                <p>
+                                    Conduz os sinais produzidos na retina
+                                    em direção ao cérebro.
+                                </p>
+                            </div>
+                        </article>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =========================
+             VISÃO GERAL
+        ========================== -->
+
+        <section class="summary-section">
+
+            <div class="container">
+
+                <div class="summary-box">
+
+                    <div class="summary-content">
+
+                        <div class="eyebrow">
+                            CONECTANDO OS CONCEITOS
+                        </div>
+
+                        <h2>
+                            Tudo começa com
+                            <span>a luz.</span>
+                        </h2>
+
+                        <p>
+                            Formação de imagens, cores, reflexão e visão
+                            são diferentes manifestações dos mesmos
+                            princípios fundamentais da Óptica.
+                        </p>
+
+                    </div>
+
+
+                    <div class="summary-flow">
+
+                        <div class="flow-item">
+                            <span class="flow-number">01</span>
+                            <strong>Luz</strong>
+                        </div>
+
+                        <span class="flow-arrow">→</span>
+
+                        <div class="flow-item">
+                            <span class="flow-number">02</span>
+                            <strong>Interação</strong>
+                        </div>
+
+                        <span class="flow-arrow">→</span>
+
+                        <div class="flow-item">
+                            <span class="flow-number">03</span>
+                            <strong>Imagem</strong>
+                        </div>
+
+                        <span class="flow-arrow">→</span>
+
+                        <div class="flow-item">
+                            <span class="flow-number">04</span>
+                            <strong>Percepção</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CURIOSIDADES
+        ========================== -->
+
+        <section class="facts-section">
+
+            <div class="container">
+
+                <div class="section-heading centered">
+
+                    <div class="eyebrow dark-eyebrow">
+                        VOCÊ SABIA?
+                    </div>
+
+                    <h2>
+                        Óptica no
+                        <span>cotidiano.</span>
+                    </h2>
+
+                </div>
+
+
+                <div class="facts-grid">
+
+                    <div class="fact">
+                        <strong>01</strong>
+                        <h3>Celulares</h3>
+                        <p>
+                            As câmeras utilizam sistemas de lentes
+                            para focalizar a luz sobre um sensor.
+                        </p>
+                    </div>
+
+                    <div class="fact">
+                        <strong>02</strong>
+                        <h3>Arco-íris</h3>
+                        <p>
+                            A dispersão da luz solar nas gotas de água
+                            separa diferentes comprimentos de onda.
+                        </p>
+                    </div>
+
+                    <div class="fact">
+                        <strong>03</strong>
+                        <h3>Óculos</h3>
+                        <p>
+                            Lentes corretivas alteram a trajetória da luz
+                            para que a imagem seja formada corretamente.
+                        </p>
+                    </div>
+
+                    <div class="fact">
+                        <strong>04</strong>
+                        <h3>Fibra óptica</h3>
+                        <p>
+                            A reflexão interna total permite transmitir
+                            informações através de longas distâncias.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="footer">
+
+        <div class="container footer-grid">
+
+            <div>
+
+                <a href="#inicio" class="logo footer-logo">
+                    <span class="logo-symbol">◉</span>
+                    <span>ÓPTICA<span class="logo-dot">.</span></span>
+                </a>
+
+                <p>
+                    Um espaço para compreender a luz,
+                    as imagens e a visão através da Física.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <div>
+                    <span>CONTEÚDO</span>
+                    <a href="#formacao">Formação de imagens</a>
+                    <a href="#cores">Física das cores</a>
+                </div>
+
+                <div>
+                    <span>ÓPTICA</span>
+                    <a href="#espelhos">Espelhos</a>
+                    <a href="#olho">Olho humano</a>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="container footer-bottom">
+
+            <span>
+                © 2026 — Projeto educacional de Óptica
+            </span>
+
+            <span>
+                Luz • Ciência • Conhecimento
+            </span>
+
+        </div>
+
+    </footer>
+
 
 </body>
 </html>
