@@ -297,7 +297,7 @@ header h1 {
     font-weight: 800;
     text-align: center;
     background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
-    -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     letter-spacing: -0.02em;
 }
