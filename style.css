@@ -790,4 +790,46 @@ RESPONSIVIDADE
 }
 
 
+} /* ========================================
+FÍSICA DA BOLA DA COPA
+======================================== */
+
+.bola-info {
+margin-top: 50px;
+}
+
+.bola-info h3 {
+margin-bottom: 15px;
+color: #ffffff;
+}
+
+.bola-info .info-card {
+height: 100%;
+}
+
+/* Destaque da física */
+
+#bola .highlight {
+margin-top: 45px;
+}
+
+#bola .highlight > p {
+max-width: 900px;
+margin-bottom: 20px;
+color: #c8d0dc;
+}
+
+#bola .formula {
+color: #63c5ff;
+}
+
+/* Efeito visual nos cards da bola */
+
+#bola .card:hover .card-icon {
+transform: scale(1.15) rotate(5deg);
+transition: 0.3s ease;
+}
+
+#bola .card-icon {
+transition: 0.3s ease;
 }
