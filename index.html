@@ -1,66 +1,416 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Óptica Avançada & A Física do Esporte</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <h1>Portal de Óptica Física</h1>
-        <nav>
-            <ul>
-                <li><a href="#imagens">Formação de Imagens</a></li>
-                <li><a href="#cores">Física das Cores</a></li>
-                <li><a href="#espelhos">Espelhos & Reflexão</a></li>
-                <li><a href="#olho">Olho Humano</a></li>
-                <li><a href="#bola-copa">Física da Bola da Copa</a></li>
-            </ul>
-        </nav>
-    </header>
+<!DOCTYPE html> <html lang="pt-BR"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Óptica - Física</title> <link rel="stylesheet" href="style.css"> </head> <body>
+<header>
+    <nav class="navbar">
+        <div class="logo">🔬 Óptica</div>
 
-    <main>
-        <section id="imagens" class="card">
+        <ul class="menu">
+            <li><a href="#introducao">Introdução</a></li>
+            <li><a href="#imagens">Imagens</a></li>
+            <li><a href="#cores">Cores</a></li>
+            <li><a href="#espelhos">Espelhos</a></li>
+            <li><a href="#olho">Olho Humano</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <div class="hero-content">
+            <span class="tag">FÍSICA • ÓPTICA</span>
+            <h1>Óptica: a ciência da luz e das imagens</h1>
+
+            <p>
+                Entenda como a luz se comporta, como as imagens são formadas,
+                por que enxergamos as cores e como funciona a visão humana.
+            </p>
+
+            <a href="#introducao" class="btn">Começar a estudar</a>
+        </div>
+    </div>
+</header>
+
+<main>
+
+    <!-- INTRODUÇÃO -->
+    <section id="introducao" class="section">
+        <div class="section-title">
+            <span>01</span>
+            <h2>Introdução à Óptica</h2>
+        </div>
+
+        <div class="content-grid">
+            <div class="text-content">
+                <p>
+                    A <strong>Óptica</strong> é a área da Física responsável pelo
+                    estudo da luz, de sua propagação e de sua interação com
+                    diferentes materiais.
+                </p>
+
+                <p>
+                    Ela está presente em diversos fenômenos do nosso cotidiano,
+                    como a formação de imagens em espelhos, o funcionamento
+                    de lentes, as cores dos objetos e a visão humana.
+                </p>
+
+                <p>
+                    A luz pode ser estudada considerando fenômenos como
+                    <strong>reflexão, refração, dispersão e difração</strong>.
+                </p>
+            </div>
+
+            <div class="info-card">
+                <div class="icon">💡</div>
+                <h3>Você sabia?</h3>
+                <p>
+                    A luz visível é apenas uma pequena parte do espectro
+                    eletromagnético. Existem também ondas como
+                    infravermelho, ultravioleta, micro-ondas e raios X.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FORMAÇÃO DE IMAGENS -->
+    <section id="imagens" class="section dark-section">
+        <div class="section-title">
+            <span>02</span>
             <h2>Uso e Formação de Imagens</h2>
-            <p>A formação de imagens ocorre pela refração e reflexão da luz ao atravessar meios ópticos ou atingir superfícies. Lentes convergentes formam imagens reais ou virtuais dependendo da distância focal ($f$) e da posição do objeto ($p$), seguindo a Equação de Gauss:</p>
-            <p class="formula">$$\frac{1}{f} = \frac{1}{p} + \frac{1}{p'}$$</p>
-            <button onclick="interagir('imagens')">Explorar Simulação</button>
-            <div id="output-imagens" class="interactive-area"></div>
-        </section>
+        </div>
 
-        <section id="cores" class="card">
+        <p class="section-intro">
+            A formação de imagens acontece quando os raios luminosos
+            provenientes de um objeto chegam aos nossos olhos ou a um
+            dispositivo óptico.
+        </p>
+
+        <div class="cards">
+
+            <article class="card">
+                <div class="card-icon">📷</div>
+                <h3>Câmeras</h3>
+                <p>
+                    As câmeras utilizam lentes para direcionar os raios de luz
+                    e formar uma imagem sobre um sensor.
+                </p>
+            </article>
+
+            <article class="card">
+                <div class="card-icon">🔎</div>
+                <h3>Lupas</h3>
+                <p>
+                    Uma lupa utiliza uma lente convergente para produzir uma
+                    imagem ampliada de um objeto.
+                </p>
+            </article>
+
+            <article class="card">
+                <div class="card-icon">👓</div>
+                <h3>Óculos</h3>
+                <p>
+                    As lentes dos óculos modificam a trajetória da luz para
+                    corrigir problemas de visão.
+                </p>
+            </article>
+
+        </div>
+
+        <div class="highlight">
+            <h3>Imagem real × Imagem virtual</h3>
+
+            <div class="comparison">
+                <div>
+                    <h4>Imagem Real</h4>
+                    <p>
+                        É formada pelo encontro efetivo dos raios luminosos.
+                        Pode ser projetada sobre uma tela.
+                    </p>
+                </div>
+
+                <div>
+                    <h4>Imagem Virtual</h4>
+                    <p>
+                        É formada pelo prolongamento dos raios luminosos.
+                        Não pode ser projetada diretamente sobre uma tela.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- CORES -->
+    <section id="cores" class="section">
+        <div class="section-title">
+            <span>03</span>
             <h2>Física das Cores</h2>
-            <p>A cor de um objeto é determinada pelo comprimento de onda da luz que ele reflete. A luz branca é a soma de todas as cores do espectro visível. Quando incide em um prisma, ocorre o fenômeno da dispersão cromática devido às variações no índice de refração ($n$).</p>
-            <button onclick="interagir('cores')">Ver Mistura de Cores</button>
-            <div id="output-cores" class="interactive-area"></div>
-        </section>
+        </div>
 
-        <section id="espelhos" class="card">
+        <div class="content-grid">
+            <div class="text-content">
+                <p>
+                    As cores que enxergamos estão relacionadas à interação
+                    entre a luz e os objetos.
+                </p>
+
+                <p>
+                    A <strong>luz branca</strong> é formada por diferentes
+                    frequências de luz visível. Quando atravessa um prisma,
+                    ela pode ser separada em diversas cores.
+                </p>
+
+                <p>
+                    Esse fenômeno é chamado de <strong>dispersão da luz</strong>
+                    e pode ser observado naturalmente no arco-íris.
+                </p>
+            </div>
+
+            <div class="color-spectrum">
+                <div class="color red"></div>
+                <div class="color orange"></div>
+                <div class="color yellow"></div>
+                <div class="color green"></div>
+                <div class="color blue"></div>
+                <div class="color purple"></div>
+            </div>
+        </div>
+
+        <div class="cards color-cards">
+
+            <article class="card">
+                <h3>🔴 Vermelho</h3>
+                <p>
+                    Possui uma das maiores comprimentos de onda dentro
+                    da faixa da luz visível.
+                </p>
+            </article>
+
+            <article class="card">
+                <h3>🟢 Verde</h3>
+                <p>
+                    Está aproximadamente na região central do espectro
+                    visível e possui grande importância para a visão humana.
+                </p>
+            </article>
+
+            <article class="card">
+                <h3>🔵 Azul</h3>
+                <p>
+                    Possui comprimento de onda menor que o vermelho e
+                    apresenta maior frequência.
+                </p>
+            </article>
+
+        </div>
+    </section>
+
+
+    <!-- ESPELHOS -->
+    <section id="espelhos" class="section dark-section">
+        <div class="section-title">
+            <span>04</span>
             <h2>Espelhos e Reflexão</h2>
-            <p>A reflexão segue duas leis fundamentais: o raio incidente, o raio refletido e a normal pertencem ao mesmo plano, e o ângulo de incidência é igual ao ângulo de reflexão ($\theta_i = \theta_r$). Espelhos esféricos (côncavos e convexos) alteram a convergência dos raios para formar imagens ampliadas, reduzidas ou invertidas.</p>
-        </section>
+        </div>
 
-        <section id="olho" class="card">
+        <p class="section-intro">
+            A reflexão ocorre quando a luz encontra uma superfície e retorna
+            para o meio de onde veio.
+        </p>
+
+        <div class="law-box">
+            <span class="law-symbol">θ</span>
+
+            <div>
+                <h3>Lei da Reflexão</h3>
+                <p>
+                    O ângulo de incidência é igual ao ângulo de reflexão.
+                </p>
+
+                <div class="formula">
+                    <strong>θᵢ = θᵣ</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="mirror-types">
+
+            <div class="mirror-card">
+                <div class="mirror curved-left"></div>
+                <h3>Espelho Plano</h3>
+                <p>
+                    Possui uma superfície plana e forma uma imagem virtual,
+                    direita e de tamanho igual ao objeto.
+                </p>
+            </div>
+
+            <div class="mirror-card">
+                <div class="mirror concave"></div>
+                <h3>Espelho Côncavo</h3>
+                <p>
+                    Possui uma superfície refletora voltada para dentro.
+                    Dependendo da posição do objeto, pode formar imagens
+                    reais ou virtuais.
+                </p>
+            </div>
+
+            <div class="mirror-card">
+                <div class="mirror convex"></div>
+                <h3>Espelho Convexo</h3>
+                <p>
+                    Possui uma superfície refletora voltada para fora.
+                    Produz imagens virtuais, direitas e menores.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- OLHO HUMANO -->
+    <section id="olho" class="section">
+        <div class="section-title">
+            <span>05</span>
             <h2>A Óptica do Olho Humano</h2>
-            <p>O olho funciona como uma câmara fotográfica biológica. A córnea e o cristalino atuam como lentes convergentes que projetam imagens reais e invertidas na retina. O processo de acomodação visual altera o raio de curvatura do cristalino para focar objetos a diferentes distâncias.</p>
-        </section>
+        </div>
 
-        <section id="bola-copa" class="card destaque">
-            <h2>Detalhes da Física da Bola da Copa</h2>
-            <p>Além da aerodinâmica (Efeito Magnus), a visibilidade da bola em campo envolve conceitos ópticos avançados:</p>
-            <ul>
-                <li><strong>Contraste Cromático:</strong> O design das bolas modernas utiliza padrões de cores de alta frequência para destacar a bola contra o gramado verde sob iluminação artificial (estádios).</li>
-                <li><strong>Revestimento Antirreflexo:</strong> Texturas microestruturadas na superfície reduzem o ofuscamento (glare) causado por refletores potentes, garantindo leitura visual precisa para jogadores e câmeras de transmissão.</li>
-                <li><strong>Visibilidade de Alta Velocidade:</strong> O rastreamento óptico por câmeras de alta velocidade utiliza a reflexão de luz infravermelha em sensores internos para detectar impedimentos e a linha de gol.</li>
-            </ul>
-        </section>
-    </main>
+        <div class="eye-content">
 
-    <footer>
-        <p>&copy; 2026 Portal de Física e Óptica Aplicada.</p>
-    </footer>
+            <div class="eye-illustration">
+                <div class="eye">
+                    <div class="iris">
+                        <div class="pupil"></div>
+                    </div>
+                </div>
+            </div>
 
-    <script src="script.js"></script>
-</body>
-</html>
+            <div class="text-content">
+                <p>
+                    O olho humano funciona de maneira semelhante a um
+                    sistema óptico. A luz entra pelo olho e é direcionada
+                    até a retina, onde uma imagem é formada.
+                </p>
+
+                <div class="eye-parts">
+
+                    <div>
+                        <h3>Córnea</h3>
+                        <p>
+                            É a camada transparente localizada na parte
+                            frontal do olho e ajuda a focalizar a luz.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3>Pupila</h3>
+                        <p>
+                            É a abertura que controla a quantidade de luz
+                            que entra no olho.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3>Cristalino</h3>
+                        <p>
+                            É uma lente natural que altera sua forma para
+                            ajudar na focalização das imagens.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3>Retina</h3>
+                        <p>
+                            É a camada sensível à luz onde a imagem é
+                            registrada e convertida em sinais nervosos.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- PROBLEMAS DE VISÃO -->
+    <section class="section dark-section">
+        <div class="section-title">
+            <span>06</span>
+            <h2>Problemas de Visão</h2>
+        </div>
+
+        <div class="vision-grid">
+
+            <article class="vision-card">
+                <span class="vision-number">01</span>
+                <h3>Miopia</h3>
+                <p>
+                    A imagem tende a se formar antes da retina. Pode ser
+                    corrigida com lentes divergentes.
+                </p>
+            </article>
+
+            <article class="vision-card">
+                <span class="vision-number">02</span>
+                <h3>Hipermetropia</h3>
+                <p>
+                    A imagem tende a se formar depois da retina. Pode ser
+                    corrigida com lentes convergentes.
+                </p>
+            </article>
+
+            <article class="vision-card">
+                <span class="vision-number">03</span>
+                <h3>Astigmatismo</h3>
+                <p>
+                    Está relacionado a uma curvatura irregular da córnea ou
+                    de outras estruturas ópticas do olho.
+                </p>
+            </article>
+
+            <article class="vision-card">
+                <span class="vision-number">04</span>
+                <h3>Presbiopia</h3>
+                <p>
+                    Está relacionada à diminuição da capacidade de
+                    acomodação do cristalino, geralmente associada ao
+                    envelhecimento.
+                </p>
+            </article>
+
+        </div>
+    </section>
+
+
+    <!-- CONCLUSÃO -->
+    <section class="section conclusion">
+        <div class="conclusion-content">
+            <span class="tag">CONCLUSÃO</span>
+
+            <h2>A luz está presente em tudo ao nosso redor.</h2>
+
+            <p>
+                Estudar Óptica permite compreender fenômenos presentes em
+                nosso cotidiano, desde o funcionamento de uma simples
+                lupa até a complexa formação das imagens no olho humano.
+            </p>
+
+            <a href="#introducao" class="btn">Voltar ao início ↑</a>
+        </div>
+    </section>
+
+</main>
+
+
+<footer>
+    <div class="footer-content">
+        <div>
+            <h3>🔬 Óptica</h3>
+            <p>Um guia introdutório sobre Óptica e seus principais conceitos.</p>
+        </div>
+
+        <div>
+            <p>Trabalho de Física</p>
+            <p>© 2026 • Todos os direitos reservados</p>
+        </div>
+    </div>
+</footer>
+
+</body> </html>
